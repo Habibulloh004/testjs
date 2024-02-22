@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="demo"></div>
+    <script>
+      var xhttp = new XMLHttpRequest();
+      xhttp.onreadystatechange = function () {
+        console.log(this.readyState);
+        console.log(this.status);
+        if (this.readyState == 4 && this.status == 200) {
+          document.getElementById("demo").innerHTML = xhttp.responseText;
+        }
+      };
+      xhttp.open("GET", "http://172.20.10.9:5000/get_products_info/2024", true);
+      xhttp.send();
+    </script>
+  </body>
+</html>
